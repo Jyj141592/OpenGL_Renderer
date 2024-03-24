@@ -21,6 +21,17 @@ target_link_libraries(
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/glew/glew32s.lib
 )
 
+if (WIN32)
+    # /ENTRY:mainCRTStartup keeps the same "main" function instead of requiring "WinMain"
+    set(SUBSYSTEM_LINKER_OPTIONS 
+    /SUBSYSTEM:WINDOWS 
+    /ENTRY:mainCRTStartup)
+else()
+    set(SUBSYSTEM_LINKER_OPTIONS "-mwindows")
+endif()
+
+target_link_options(${PROJECT_NAME} PRIVATE ${SUBSYSTEM_LINKER_OPTIONS})
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

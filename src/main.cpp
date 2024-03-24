@@ -1,8 +1,16 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 int main(int, char**){
-    std::cout << "Hello, from OpenGL_Renderer!\n";
-    int a;
-    std::cin >> a;
+    glfwInit();
+    GLFWwindow* window = glfwCreateWindow(640,480,"Test Window",0,0);
+
+    glfwMakeContextCurrent(window);
+    while(!glfwWindowShouldClose(window)){
+        
+        glfwPollEvents();
+    }
+    glfwDestroyWindow(window);
+    glfwTerminate();
 }
