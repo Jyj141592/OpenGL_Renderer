@@ -6,7 +6,7 @@ target_link_libraries(GLRenderer
 
 target_include_directories(GLRenderer 
     PRIVATE 
-    ${CMAKE_CURRENT_DIR}/private/include/)
+    ${CMAKE_CURRENT_SOURCE_DIR}/private/include/)
 target_include_directories(GLRenderer
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/public/)
